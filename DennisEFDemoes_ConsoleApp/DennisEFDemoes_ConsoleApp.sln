@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DennisEFDemoes_ConsoleApp", "DennisEFDemoes_ConsoleApp\DennisEFDemoes_ConsoleApp.csproj", "{AE746E97-6EE4-42CF-AB80-F3566DAF474F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_AsyncQuery_Console", "EFdemo_DBFirst_Console\EFdemo_AsyncQuery_Console.csproj", "{5C5F47B1-7280-4ED8-9438-9E4D34391343}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{AE746E97-6EE4-42CF-AB80-F3566DAF474F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE746E97-6EE4-42CF-AB80-F3566DAF474F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE746E97-6EE4-42CF-AB80-F3566DAF474F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C5F47B1-7280-4ED8-9438-9E4D34391343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C5F47B1-7280-4ED8-9438-9E4D34391343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C5F47B1-7280-4ED8-9438-9E4D34391343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C5F47B1-7280-4ED8-9438-9E4D34391343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
