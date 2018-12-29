@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DennisEFDemoes_ConsoleApp", "DennisEFDemoes_ConsoleApp\DennisEFDemoes_ConsoleApp.csproj", "{AE746E97-6EE4-42CF-AB80-F3566DAF474F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_CodeFirst", "DennisEFDemoes_ConsoleApp\EFdemo_CodeFirst.csproj", "{AE746E97-6EE4-42CF-AB80-F3566DAF474F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_AsyncQuery_Console", "EFdemo_DBFirst_Console\EFdemo_AsyncQuery_Console.csproj", "{5C5F47B1-7280-4ED8-9438-9E4D34391343}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_AsyncQuery", "EFdemo_DBFirst_Console\EFdemo_AsyncQuery.csproj", "{5C5F47B1-7280-4ED8-9438-9E4D34391343}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_3queryMethodDemo_Console", "EFDemo_3queryMethodDemo_Console\EFDemo_3queryMethodDemo_Console.csproj", "{C6F13F71-B6A0-4F2F-A207-6101D29F2C07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_QueryWay", "EFDemo_3queryMethodDemo_Console\EFDemo_QueryWay.csproj", "{C6F13F71-B6A0-4F2F-A207-6101D29F2C07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_MVC_EF6_WebApp", "EFDemo_MVC_EF6_WebApp\EFDemo_MVC_EF6_WebApp.csproj", "{47FD1238-CA32-41FD-A3C9-4232AEA10453}"
 EndProject
