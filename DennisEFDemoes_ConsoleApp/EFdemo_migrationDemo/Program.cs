@@ -12,7 +12,7 @@ namespace EFdemo_migrationDemo
         {
             using (var db = new BlogContext())
             {
-                db.Blogs.Add(new Blog { Name = "Another Blog " });
+                db.Blogs.Add(new Blog { Name = "Another Blog ", Comments = "001"});
                 db.SaveChanges();
 
                 foreach (var blog in db.Blogs)

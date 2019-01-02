@@ -10,7 +10,7 @@ namespace EFdemo_migrationDemo.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "EFdemo_migrationDemo.BlogContext";
+            //ContextKey = "EFdemo_migrationDemo.BlogContext";
         }
 
         protected override void Seed(EFdemo_migrationDemo.BlogContext context)

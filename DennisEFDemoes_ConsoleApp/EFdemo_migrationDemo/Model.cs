@@ -7,6 +7,11 @@ namespace EFdemo_migrationDemo
 {
     public class BlogContext : DbContext
     {
+        public BlogContext()
+            : base("name=BlogContext")
+        {
+        }
+
         public DbSet<Blog> Blogs { get; set; }
     }
 
@@ -17,6 +22,8 @@ namespace EFdemo_migrationDemo
         public string Url { get; set; }
         public int Rating { get; set; }
         public virtual List<Post> Posts { get; set; }
+        public string Comments { get; set; }
+        public string Comments1 { get; set; }
     }
 
     public class Post
