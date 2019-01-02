@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_MVC_EF6_WebApp", "EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_LoadMechanism", "EFdemo_LoadMechanism\EFdemo_LoadMechanism.csproj", "{70D2453B-0E87-4020-AE7D-1BA5E9DCA7B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_migrationDemo", "EFdemo_migrationDemo\EFdemo_migrationDemo.csproj", "{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{70D2453B-0E87-4020-AE7D-1BA5E9DCA7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70D2453B-0E87-4020-AE7D-1BA5E9DCA7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70D2453B-0E87-4020-AE7D-1BA5E9DCA7B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
