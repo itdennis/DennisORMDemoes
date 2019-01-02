@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EF6RecipesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustomerEmails">
+          <Key>
+            <PropertyRef Name="CustomerEmailId" />
+          </Key>
+          <Property Name="CustomerEmailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerCustomerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerTypeId" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerType_CustomerTypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerTypes">
+          <Key>
+            <PropertyRef Name="CustomerTypeId" />
+          </Key>
+          <Property Name="CustomerTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CustomerCustomerId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CustomerCustomerEmail">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CustomerEmails" Type="Self.CustomerEmails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerEmails">
+              <PropertyRef Name="CustomerCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerCustomerType">
+          <End Role="CustomerTypes" Type="Self.CustomerTypes" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTypes">
+              <PropertyRef Name="CustomerTypeId" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CustomerType_CustomerTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EF6RecipesModelStoreContainer">
+          <EntitySet Name="CustomerEmails" EntityType="Self.CustomerEmails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerTypes" EntityType="Self.CustomerTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CustomerCustomerEmail" Association="Self.FK_CustomerCustomerEmail">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerEmails" EntitySet="CustomerEmails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerCustomerType" Association="Self.FK_CustomerCustomerType">
+            <End Role="CustomerTypes" EntitySet="CustomerTypes" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EF6RecipesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CustomerEmail">
+          <Key>
+            <PropertyRef Name="CustomerEmailId" />
+          </Key>
+          <Property Name="CustomerEmailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_CustomerCustomerEmail" FromRole="CustomerEmails" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerTypeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerType_CustomerTypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CustomerEmails" Relationship="Self.FK_CustomerCustomerEmail" FromRole="Customers" ToRole="CustomerEmails" />
+          <NavigationProperty Name="CustomerType" Relationship="Self.FK_CustomerCustomerType" FromRole="Customers" ToRole="CustomerTypes" />
+        </EntityType>
+        <EntityType Name="CustomerType">
+          <Key>
+            <PropertyRef Name="CustomerTypeId" />
+          </Key>
+          <Property Name="CustomerTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_CustomerCustomerType" FromRole="CustomerTypes" ToRole="Customers" />
+        </EntityType>
+        <Association Name="FK_CustomerCustomerEmail">
+          <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CustomerEmails" Type="Self.CustomerEmail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerEmails">
+              <PropertyRef Name="CustomerCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerCustomerType">
+          <End Role="CustomerTypes" Type="Self.CustomerType" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTypes">
+              <PropertyRef Name="CustomerTypeId" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="CustomerType_CustomerTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EF6RecipesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CustomerEmails" EntityType="Self.CustomerEmail" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="CustomerTypes" EntityType="Self.CustomerType" />
+          <AssociationSet Name="FK_CustomerCustomerEmail" Association="Self.FK_CustomerCustomerEmail">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerEmails" EntitySet="CustomerEmails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerCustomerType" Association="Self.FK_CustomerCustomerType">
+            <End Role="CustomerTypes" EntitySet="CustomerTypes" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EF6RecipesModelStoreContainer" CdmEntityContainer="EF6RecipesEntities">
+          <EntitySetMapping Name="CustomerEmails">
+            <EntityTypeMapping TypeName="EF6RecipesModel.CustomerEmail">
+              <MappingFragment StoreEntitySet="CustomerEmails">
+                <ScalarProperty Name="CustomerEmailId" ColumnName="CustomerEmailId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CustomerCustomerId" ColumnName="CustomerCustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="EF6RecipesModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerTypeId" ColumnName="CustomerTypeId" />
+                <ScalarProperty Name="CustomerType_CustomerTypeId" ColumnName="CustomerType_CustomerTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerTypes">
+            <EntityTypeMapping TypeName="EF6RecipesModel.CustomerType">
+              <MappingFragment StoreEntitySet="CustomerTypes">
+                <ScalarProperty Name="CustomerTypeId" ColumnName="CustomerTypeId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CustomerCustomerId" ColumnName="CustomerCustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
