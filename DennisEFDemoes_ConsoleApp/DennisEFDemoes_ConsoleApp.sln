@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_migrationDemo", "EFd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_CodeFirstExistingDatabaseSample", "EFDemo_CodeFirstExistingDatabaseSample\EFDemo_CodeFirstExistingDatabaseSample.csproj", "{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_Many2ManyDemo", "EFDemo_Many2ManyDemo\EFDemo_Many2ManyDemo.csproj", "{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
