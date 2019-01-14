@@ -10,12 +10,13 @@ namespace EFDemo_Many2ManyDemo.DBContext
 {
     public class Context : DbContext
     {
-        public Context() : base("DefaultConnection")
-        {
-        }
+        //public Context() : base("DefaultConnection")
+        //{
+        //}
 
         public DbSet<Ranker> Rankers { get; set; }
         public DbSet<Slot> Slots { get; set; }
+        public DbSet<Model> Models { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

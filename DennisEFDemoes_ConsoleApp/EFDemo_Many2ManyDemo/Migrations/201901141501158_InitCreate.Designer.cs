@@ -7,13 +7,13 @@ namespace EFDemo_Many2ManyDemo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Init : IMigrationMetadata
+    public sealed partial class InitCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901110906359_Init"; }
+            get { return "201901141501158_InitCreate"; }
         }
         
         string IMigrationMetadata.Source

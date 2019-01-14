@@ -53,11 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBContext\DbContext.cs" />
+    <Compile Include="DBModels\Model.cs" />
+    <Compile Include="DBModels\RankerModel.cs" />
     <Compile Include="DBModels\Slot.cs" />
     <Compile Include="DBModels\Ranker.cs" />
-    <Compile Include="Migrations\201901110906359_Init.cs" />
-    <Compile Include="Migrations\201901110906359_Init.Designer.cs">
-      <DependentUpon>201901110906359_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201901141501158_InitCreate.cs" />
+    <Compile Include="Migrations\201901141501158_InitCreate.Designer.cs">
+      <DependentUpon>201901141501158_InitCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -68,8 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901110906359_Init.resx">
-      <DependentUpon>201901110906359_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901141501158_InitCreate.resx">
+      <DependentUpon>201901141501158_InitCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

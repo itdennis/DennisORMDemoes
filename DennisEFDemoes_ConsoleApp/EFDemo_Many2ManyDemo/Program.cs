@@ -12,31 +12,44 @@ namespace EFDemo_Many2ManyDemo
     {
         static void Main(string[] args)
         {
-            using (var db = new Context())
-            {
-                
-                string sqlCommand = "select distinct s.SlotId, s.SlotName, COUNT(*) as RankerUsage from Slots s " +
-                                    "join SlotRankers sr on sr.Slot_SlotId = s.SlotId" +
-                                    "join Rankers r on r.RankerId = sr.Ranker_RankerId " +
-                                    "group by s.SlotId, s.SlotName";
-                string sql1 = "select s.SlotId, s.SlotName from Slots s";
-                var rowCount = db.Database.ExecuteSqlCommand(sql1);
-                var res = from s in db.Slots
-                    from r in db.Rankers
-                    where s.Rankers.Any(sr => sr.RankerId == r.RankerId)
-                    select s;
-
-
-            }
+            //LoadData();
+            ReadData();
 
             Console.ReadKey();
         }
+
+        static void LoadData()
+        {
+            using (var db = new Context())
+            {
+                var s1 = new Slot() { SlotId = 1001, SlotName = "slotName1001" };
+                var s2 = new Slot() { SlotId = 1002, SlotName = "slotName1002" };
+                var s3 = new Slot() { SlotId = 1003, SlotName = "slotName1003" };
+                var s4 = new Slot() { SlotId = 1004, SlotName = "slotName1004" };
+                db.Slots.Add(s1);
+                db.Slots.Add(s2);
+                db.Slots.Add(s3);
+                db.Slots.Add(s4);
+                db.SaveChanges();
+            }
+        }
+
+        static void ReadData()
+        {
+            using (var db = new Context())
+            {
+                var sqlCommand = "select count(*) as SlotCount from Slots";
+                var res = db.Database.SqlQuery<SlotResult>(sqlCommand).ToList();
+                if (res != null)
+                {
+
+                }
+            }
+        }
     }
 
-    class RankerModel
+    class SlotResult
     {
-        public int SlotId { get; set; }
-        public string SlotName { get; set; }
-        public int RankerUsage { get; set; }
+        public int SlotCount { get; set; }
     }
 }

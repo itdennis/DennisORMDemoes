@@ -17,6 +17,5 @@ namespace EFDemo_Many2ManyDemo.DBModels
         [Required]
         public string RankerName { get; set; }
 
-        public virtual ICollection<Slot> Slots { get; set; } = new HashSet<Slot>();
     }
 }

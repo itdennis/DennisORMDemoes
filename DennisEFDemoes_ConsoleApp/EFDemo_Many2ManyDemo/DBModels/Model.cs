@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace EFDemo_Many2ManyDemo.DBModels
 {
-    public class Slot
+    public class Model
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
         [Key]
-        public int SlotId { get; set; }
-        public string SlotName { get; set; }
-        public int RankerUsage { get; set; }
+        public int ModelId { get; set; }
+        [Required]
+        public string ModelName { get; set; }
     }
 }
