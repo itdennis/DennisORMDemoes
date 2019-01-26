@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DennisOdataDemoes", "DennisOdataDemoes\DennisOdataDemoes.csproj", "{2055D633-BC93-4CF4-B26C-6CEB2D795B75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DennisOdataDemos", "DennisOdataDemoes\DennisOdataDemos.csproj", "{2055D633-BC93-4CF4-B26C-6CEB2D795B75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsApp", "ProductsApp\ProductsApp.csproj", "{4998BA41-2EED-46F5-85E9-E3BD13166DEA}"
 EndProject

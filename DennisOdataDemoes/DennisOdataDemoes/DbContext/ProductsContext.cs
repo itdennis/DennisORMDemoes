@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using DennisOdataDemoes.Models;
 
 namespace DennisOdataDemoes
 {
@@ -9,5 +10,6 @@ namespace DennisOdataDemoes
         {
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

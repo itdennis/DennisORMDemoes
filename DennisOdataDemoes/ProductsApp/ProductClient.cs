@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 1/25/2019 11:50:36 AM
+// Generation date: 1/26/2019 11:15:16 PM
 namespace ProductsApp.DennisOdataDemoes
 {
     /// <summary>
@@ -199,6 +199,148 @@ namespace ProductsApp.DennisOdataDemoes
         }
     }
 }
+namespace ProductsApp.DennisOdataDemoes.Models
+{
+    /// <summary>
+    /// There are no comments for EmployeeSingle in the schema.
+    /// </summary>
+    [global::Microsoft.OData.Client.OriginalNameAttribute("EmployeeSingle")]
+    public partial class EmployeeSingle : global::Microsoft.OData.Client.DataServiceQuerySingle<Employee>
+    {
+        /// <summary>
+        /// Initialize a new EmployeeSingle object.
+        /// </summary>
+        public EmployeeSingle(global::Microsoft.OData.Client.DataServiceContext context, string path)
+            : base(context, path) {}
+
+        /// <summary>
+        /// Initialize a new EmployeeSingle object.
+        /// </summary>
+        public EmployeeSingle(global::Microsoft.OData.Client.DataServiceContext context, string path, bool isComposable)
+            : base(context, path, isComposable) {}
+
+        /// <summary>
+        /// Initialize a new EmployeeSingle object.
+        /// </summary>
+        public EmployeeSingle(global::Microsoft.OData.Client.DataServiceQuerySingle<Employee> query)
+            : base(query) {}
+
+    }
+    /// <summary>
+    /// There are no comments for Employee in the schema.
+    /// </summary>
+    /// <KeyProperties>
+    /// Id
+    /// </KeyProperties>
+    [global::Microsoft.OData.Client.Key("Id")]
+    [global::Microsoft.OData.Client.OriginalNameAttribute("Employee")]
+    public partial class Employee : global::Microsoft.OData.Client.BaseEntityType, global::System.ComponentModel.INotifyPropertyChanged
+    {
+        /// <summary>
+        /// Create a new Employee object.
+        /// </summary>
+        /// <param name="ID">Initial value of Id.</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        public static Employee CreateEmployee(int ID)
+        {
+            Employee employee = new Employee();
+            employee.Id = ID;
+            return employee;
+        }
+        /// <summary>
+        /// There are no comments for Property Id in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Id")]
+        public int Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                this.OnIdChanging(value);
+                this._Id = value;
+                this.OnIdChanged();
+                this.OnPropertyChanged("Id");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        private int _Id;
+        partial void OnIdChanging(int value);
+        partial void OnIdChanged();
+        /// <summary>
+        /// There are no comments for Property Name in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Name")]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                this.OnNameChanging(value);
+                this._Name = value;
+                this.OnNameChanged();
+                this.OnPropertyChanged("Name");
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        private string _Name;
+        partial void OnNameChanging(string value);
+        partial void OnNameChanged();
+        /// <summary>
+        /// This event is raised when the value of the property is changed
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        public event global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// The value of the property is changed
+        /// </summary>
+        /// <param name="property">property name</param>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        protected virtual void OnPropertyChanged(string property)
+        {
+            if ((this.PropertyChanged != null))
+            {
+                this.PropertyChanged(this, new global::System.ComponentModel.PropertyChangedEventArgs(property));
+            }
+        }
+    }
+    /// <summary>
+    /// Class containing all extension methods
+    /// </summary>
+    public static class ExtensionMethods
+    {
+        /// <summary>
+        /// Get an entity of type global::ProductsApp.DennisOdataDemoes.Models.Employee as global::ProductsApp.DennisOdataDemoes.Models.EmployeeSingle specified by key from an entity set
+        /// </summary>
+        /// <param name="source">source entity set</param>
+        /// <param name="keys">dictionary with the names and values of keys</param>
+        public static global::ProductsApp.DennisOdataDemoes.Models.EmployeeSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::ProductsApp.DennisOdataDemoes.Models.Employee> source, global::System.Collections.Generic.Dictionary<string, object> keys)
+        {
+            return new global::ProductsApp.DennisOdataDemoes.Models.EmployeeSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+        }
+        /// <summary>
+        /// Get an entity of type global::ProductsApp.DennisOdataDemoes.Models.Employee as global::ProductsApp.DennisOdataDemoes.Models.EmployeeSingle specified by key from an entity set
+        /// </summary>
+        /// <param name="source">source entity set</param>
+        /// <param name="id">The value of id</param>
+        public static global::ProductsApp.DennisOdataDemoes.Models.EmployeeSingle ByKey(this global::Microsoft.OData.Client.DataServiceQuery<global::ProductsApp.DennisOdataDemoes.Models.Employee> source,
+            int id)
+        {
+            global::System.Collections.Generic.Dictionary<string, object> keys = new global::System.Collections.Generic.Dictionary<string, object>
+            {
+                { "Id", id }
+            };
+            return new global::ProductsApp.DennisOdataDemoes.Models.EmployeeSingle(source.Context, source.GetKeyPath(global::Microsoft.OData.Client.Serializer.GetKeyString(source.Context, keys)));
+        }
+    }
+}
 namespace ProductsApp.Default
 {
     /// <summary>
@@ -229,7 +371,12 @@ namespace ProductsApp.Default
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
         protected global::System.Type ResolveTypeFromName(string typeName)
         {
-            global::System.Type resolvedType = this.DefaultResolveType(typeName, "DennisOdataDemoes", "ProductsApp.DennisOdataDemoes");
+            global::System.Type resolvedType = this.DefaultResolveType(typeName, "DennisOdataDemoes.Models", "ProductsApp.DennisOdataDemoes.Models");
+            if ((resolvedType != null))
+            {
+                return resolvedType;
+            }
+            resolvedType = this.DefaultResolveType(typeName, "DennisOdataDemoes", "ProductsApp.DennisOdataDemoes");
             if ((resolvedType != null))
             {
                 return resolvedType;
@@ -250,6 +397,14 @@ namespace ProductsApp.Default
         protected string ResolveNameFromType(global::System.Type clientType)
         {
             global::Microsoft.OData.Client.OriginalNameAttribute originalNameAttribute = (global::Microsoft.OData.Client.OriginalNameAttribute)global::System.Linq.Enumerable.SingleOrDefault(global::Microsoft.OData.Client.Utility.GetCustomAttributes(clientType, typeof(global::Microsoft.OData.Client.OriginalNameAttribute), true));
+            if (clientType.Namespace.Equals("ProductsApp.DennisOdataDemoes.Models", global::System.StringComparison.Ordinal))
+            {
+                if (originalNameAttribute != null)
+                {
+                    return string.Concat("DennisOdataDemoes.Models.", originalNameAttribute.OriginalName);
+                }
+                return string.Concat("DennisOdataDemoes.Models.", clientType.Name);
+            }
             if (clientType.Namespace.Equals("ProductsApp.DennisOdataDemoes", global::System.StringComparison.Ordinal))
             {
                 if (originalNameAttribute != null)
@@ -287,12 +442,38 @@ namespace ProductsApp.Default
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
         private global::Microsoft.OData.Client.DataServiceQuery<global::ProductsApp.DennisOdataDemoes.Product> _Products;
         /// <summary>
+        /// There are no comments for Employees in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        [global::Microsoft.OData.Client.OriginalNameAttribute("Employees")]
+        public global::Microsoft.OData.Client.DataServiceQuery<global::ProductsApp.DennisOdataDemoes.Models.Employee> Employees
+        {
+            get
+            {
+                if ((this._Employees == null))
+                {
+                    this._Employees = base.CreateQuery<global::ProductsApp.DennisOdataDemoes.Models.Employee>("Employees");
+                }
+                return this._Employees;
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        private global::Microsoft.OData.Client.DataServiceQuery<global::ProductsApp.DennisOdataDemoes.Models.Employee> _Employees;
+        /// <summary>
         /// There are no comments for Products in the schema.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
         public void AddToProducts(global::ProductsApp.DennisOdataDemoes.Product product)
         {
             base.AddObject("Products", product);
+        }
+        /// <summary>
+        /// There are no comments for Employees in the schema.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
+        public void AddToEmployees(global::ProductsApp.DennisOdataDemoes.Models.Employee employee)
+        {
+            base.AddObject("Employees", employee);
         }
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.OData.Client.Design.T4", "7.5.1")]
         private abstract class GeneratedEdmModel
@@ -313,9 +494,19 @@ namespace ProductsApp.Default
         <Property Name=""Category"" Type=""Edm.String"" />
       </EntityType>
     </Schema>
+    <Schema Namespace=""DennisOdataDemoes.Models"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
+      <EntityType Name=""Employee"">
+        <Key>
+          <PropertyRef Name=""Id"" />
+        </Key>
+        <Property Name=""Id"" Type=""Edm.Int32"" Nullable=""false"" />
+        <Property Name=""Name"" Type=""Edm.String"" />
+      </EntityType>
+    </Schema>
     <Schema Namespace=""Default"" xmlns=""http://docs.oasis-open.org/odata/ns/edm"">
       <EntityContainer Name=""Container"">
         <EntitySet Name=""Products"" EntityType=""DennisOdataDemoes.Product"" />
+        <EntitySet Name=""Employees"" EntityType=""DennisOdataDemoes.Models.Employee"" />
       </EntityContainer>
     </Schema>
   </edmx:DataServices>

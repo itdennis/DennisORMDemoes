@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using DennisOdataDemoes.Models;
 using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNet.OData.Extensions;
 
@@ -15,6 +16,7 @@ namespace DennisOdataDemoes
         {
             ODataModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<Product>("Products");
+            builder.EntitySet<Employee>("Employees").EntityType.Ignore(e => e.Title);
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",
                 routePrefix: null,
