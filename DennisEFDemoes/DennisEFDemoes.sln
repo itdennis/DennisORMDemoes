@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_CodeFirst", "DennisEFDemoes_ConsoleApp\EFdemo_CodeFirst.csproj", "{AE746E97-6EE4-42CF-AB80-F3566DAF474F}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_CodeFirstExistingDatabaseSample", "EFDemo_CodeFirstExistingDatabaseSample\EFDemo_CodeFirstExistingDatabaseSample.csproj", "{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_Many2ManyDemo", "EFDemo_Many2ManyDemo\EFDemo_Many2ManyDemo.csproj", "{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_MultiDbContextDemo", "EFDemo_MultiDbContextDemo\EFDemo_MultiDbContextDemo.csproj", "{DB5BA547-449F-4500-B598-4D5FA3698BD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB5BA547-449F-4500-B598-4D5FA3698BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB5BA547-449F-4500-B598-4D5FA3698BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB5BA547-449F-4500-B598-4D5FA3698BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB5BA547-449F-4500-B598-4D5FA3698BD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

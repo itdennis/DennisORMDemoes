@@ -1,0 +1,28 @@
+namespace EFDemo_MultiDbContextDemo.MyTeacherContextMigrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Initial : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.Teachers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        LastName = c.String(),
+                        FirstMidName = c.String(),
+                        HireDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+        }
+        
+        public override void Down()
+        {
+            DropTable("dbo.Teachers");
+        }
+    }
+}
