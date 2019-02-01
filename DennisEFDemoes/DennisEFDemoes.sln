@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_Many2ManyDemo", "EFD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_MultiDbContextDemo", "EFDemo_MultiDbContextDemo\EFDemo_MultiDbContextDemo.csproj", "{DB5BA547-449F-4500-B598-4D5FA3698BD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_ModelFirstdemo", "EFDemo_POCOdemo\EFDemo_ModelFirstdemo.csproj", "{1053CFDF-5AA6-4108-98C1-30D342CC135C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{DB5BA547-449F-4500-B598-4D5FA3698BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB5BA547-449F-4500-B598-4D5FA3698BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB5BA547-449F-4500-B598-4D5FA3698BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1053CFDF-5AA6-4108-98C1-30D342CC135C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1053CFDF-5AA6-4108-98C1-30D342CC135C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1053CFDF-5AA6-4108-98C1-30D342CC135C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1053CFDF-5AA6-4108-98C1-30D342CC135C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
