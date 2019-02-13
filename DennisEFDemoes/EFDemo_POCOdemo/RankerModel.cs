@@ -12,17 +12,13 @@ namespace EFDemo_ModelFirstdemo
     using System;
     using System.Collections.Generic;
     
-    public partial class Ranker
+    public partial class RankerModel
     {
         public long RankerId { get; set; }
-        public string RankerPath { get; set; }
-        public string Name { get; set; }
-        public short Version { get; set; }
-        public Nullable<bool> IsProd { get; set; }
-        public string Md5sum { get; set; }
-        public string WBComments { get; set; }
-        public string FreeForms { get; set; }
-        public string WBConfigHashCode { get; set; }
+        public short SlotId { get; set; }
+        public short FormatVersion { get; set; }
+        public string WBConfig { get; set; }
+        public Nullable<long> WBCRC32C { get; set; }
         public System.DateTime CreatedDtim { get; set; }
         public System.DateTime ModifiedDtim { get; set; }
     }

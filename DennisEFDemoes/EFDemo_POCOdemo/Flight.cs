@@ -15,9 +15,32 @@ namespace EFDemo_ModelFirstdemo
     public partial class Flight
     {
         public long FlightId { get; set; }
-        public string FlightName { get; set; }
-        public string FlightOwner { get; set; }
-        public string FlightPara1 { get; set; }
-        public string FlightPara3 { get; set; }
+        public string Owner { get; set; }
+        public string Name { get; set; }
+        public string BingFlightId { get; set; }
+        public string Tags { get; set; }
+        public string Area { get; set; }
+        public Nullable<decimal> RunWeightXlite { get; set; }
+        public Nullable<decimal> RunWeightProd { get; set; }
+        public bool IsActive { get; set; }
+        public string AbacusClassifierModel { get; set; }
+        public string ACRFeaturesModelName { get; set; }
+        public Nullable<System.DateTime> ParameterUpdatedTime { get; set; }
+        public string ParameterUpdatedBy { get; set; }
+        public Nullable<System.DateTime> ProdDeployedTime { get; set; }
+        public Nullable<System.DateTime> XliteDeployedTime { get; set; }
+        public System.DateTime CreatedDtim { get; set; }
+        public System.DateTime ModifiedDtim { get; set; }
+        public string L1ModelName { get; set; }
+        public string DeviceTypes { get; set; }
+        public Nullable<int> GroupId { get; set; }
+        public string LineId { get; set; }
+        public string Markets { get; set; }
+        public string StandardControlFlightId { get; set; }
+        public string TrafficClass { get; set; }
+        public string FlightClass { get; set; }
+        public string TrafficGroupManagedBy { get; set; }
+        public string RelevanceModels { get; set; }
+        public string PClickClassifierConfigMap { get; set; }
     }
 }

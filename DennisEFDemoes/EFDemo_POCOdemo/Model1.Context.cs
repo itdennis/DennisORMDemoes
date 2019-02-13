@@ -13,10 +13,10 @@ namespace EFDemo_ModelFirstdemo
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Model1Container : DbContext
+    public partial class WoodblockModelKPIsEntities : DbContext
     {
-        public Model1Container()
-            : base("name=Model1Container")
+        public WoodblockModelKPIsEntities()
+            : base("name=WoodblockModelKPIsEntities")
         {
         }
     
@@ -25,8 +25,11 @@ namespace EFDemo_ModelFirstdemo
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CompactModel> CompactModels { get; set; }
+        public virtual DbSet<FlightRanker> FlightRankers { get; set; }
         public virtual DbSet<Flight> Flights { get; set; }
+        public virtual DbSet<RankerModel> RankerModels { get; set; }
         public virtual DbSet<Ranker> Rankers { get; set; }
-        public virtual DbSet<Slot> Slots { get; set; }
+        public virtual DbSet<UsageCheckHistory> UsageCheckHistories { get; set; }
     }
 }

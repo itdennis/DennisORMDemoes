@@ -12,12 +12,12 @@ namespace EFDemo_ModelFirstdemo
     using System;
     using System.Collections.Generic;
     
-    public partial class Slot
+    public partial class FlightRanker
     {
-        public long SlotId { get; set; }
-        public string SlotName { get; set; }
-        public string SlotOwner { get; set; }
-        public string FlightUsage { get; set; }
-        public string RankerUsage { get; set; }
+        public long FlightId { get; set; }
+        public string RankerName { get; set; }
+        public short AbacusClassifierId { get; set; }
+        public System.DateTime CreatedDtim { get; set; }
+        public System.DateTime ModifiedDtim { get; set; }
     }
 }

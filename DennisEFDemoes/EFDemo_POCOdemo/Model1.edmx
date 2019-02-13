@@ -4,134 +4,382 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="Flights" EntityType="Model1.Store.Flights" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Rankers" EntityType="Model1.Store.Rankers" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Slots" EntityType="Model1.Store.Slots" store:Type="Tables" Schema="dbo" />
-  </EntityContainer>
-  <EntityType Name="Flights">
-    <Key>
-      <PropertyRef Name="FlightId" />
-    </Key>
-    <Property Name="FlightId" Type="bigint" Nullable="false" />
-    <Property Name="FlightName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="FlightOwner" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="FlightPara1" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="FlightPara3" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Rankers">
-    <Key>
-      <PropertyRef Name="RankerId" />
-    </Key>
-    <Property Name="RankerId" Type="bigint" Nullable="false" />
-    <Property Name="RankerName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RankerPath" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Slots">
-    <Key>
-      <PropertyRef Name="SlotId" />
-    </Key>
-    <Property Name="SlotId" Type="bigint" Nullable="false" />
-    <Property Name="SlotName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="SlotOwner" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="FlightUsage" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="RankerUsage" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-</Schema></edmx:StorageModels>
+      <Schema Namespace="WoodblockModelKPIsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CompactModels">
+          <Key>
+            <PropertyRef Name="ModelId" />
+          </Key>
+          <Property Name="ModelId" Type="bigint" Nullable="false" />
+          <Property Name="ModelPath" Type="varchar" MaxLength="2048" Nullable="false" />
+          <Property Name="SlotId" Type="smallint" Nullable="false" />
+          <Property Name="FormatVersion" Type="smallint" Nullable="false" />
+          <Property Name="PipelineId" Type="bigint" />
+          <Property Name="TrainingEndTimeUTC" Type="datetime" />
+          <Property Name="MaxFeatureId" Type="bigint" />
+          <Property Name="ModelSize" Type="bigint" />
+          <Property Name="CRC32C" Type="bigint" />
+          <Property Name="Md5sum" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="IsProd" Type="bit" />
+          <Property Name="CreatedDtim" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtim" Type="datetime" Nullable="false" />
+          <Property Name="EncodedSlotId" Type="smallint" />
+          <Property Name="Owner" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="SlotName" Type="nvarchar(max)" />
+          <Property Name="Tag" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FlightRankers">
+          <Key>
+            <PropertyRef Name="FlightId" />
+            <PropertyRef Name="RankerName" />
+            <PropertyRef Name="AbacusClassifierId" />
+          </Key>
+          <Property Name="FlightId" Type="bigint" Nullable="false" />
+          <Property Name="RankerName" Type="varchar" MaxLength="512" Nullable="false" />
+          <Property Name="AbacusClassifierId" Type="smallint" Nullable="false" />
+          <Property Name="CreatedDtim" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtim" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Flights">
+          <Key>
+            <PropertyRef Name="FlightId" />
+          </Key>
+          <Property Name="FlightId" Type="bigint" Nullable="false" />
+          <Property Name="Owner" Type="varchar" MaxLength="512" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="BingFlightId" Type="varchar" MaxLength="512" />
+          <Property Name="Tags" Type="varchar" MaxLength="512" />
+          <Property Name="Area" Type="varchar" MaxLength="512" />
+          <Property Name="RunWeightXlite" Type="decimal" Precision="7" Scale="6" />
+          <Property Name="RunWeightProd" Type="decimal" Precision="7" Scale="6" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="AbacusClassifierModel" Type="varchar(max)" />
+          <Property Name="ACRFeaturesModelName" Type="varchar(max)" />
+          <Property Name="ParameterUpdatedTime" Type="datetime" />
+          <Property Name="ParameterUpdatedBy" Type="varchar" MaxLength="512" />
+          <Property Name="ProdDeployedTime" Type="datetime" />
+          <Property Name="XliteDeployedTime" Type="datetime" />
+          <Property Name="CreatedDtim" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtim" Type="datetime" Nullable="false" />
+          <Property Name="L1ModelName" Type="varchar(max)" />
+          <Property Name="DeviceTypes" Type="varchar" MaxLength="255" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="LineId" Type="varchar" MaxLength="255" />
+          <Property Name="Markets" Type="varchar(max)" />
+          <Property Name="StandardControlFlightId" Type="varchar" MaxLength="255" />
+          <Property Name="TrafficClass" Type="varchar" MaxLength="255" />
+          <Property Name="FlightClass" Type="varchar" MaxLength="255" />
+          <Property Name="TrafficGroupManagedBy" Type="varchar" MaxLength="255" />
+          <Property Name="RelevanceModels" Type="nvarchar(max)" />
+          <Property Name="PClickClassifierConfigMap" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RankerModels">
+          <Key>
+            <PropertyRef Name="RankerId" />
+            <PropertyRef Name="SlotId" />
+          </Key>
+          <Property Name="RankerId" Type="bigint" Nullable="false" />
+          <Property Name="SlotId" Type="smallint" Nullable="false" />
+          <Property Name="FormatVersion" Type="smallint" Nullable="false" />
+          <Property Name="WBConfig" Type="varchar(max)" />
+          <Property Name="WBCRC32C" Type="bigint" />
+          <Property Name="CreatedDtim" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtim" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rankers">
+          <Key>
+            <PropertyRef Name="RankerId" />
+          </Key>
+          <Property Name="RankerId" Type="bigint" Nullable="false" />
+          <Property Name="RankerPath" Type="varchar" MaxLength="2048" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="512" Nullable="false" />
+          <Property Name="Version" Type="smallint" Nullable="false" />
+          <Property Name="IsProd" Type="bit" />
+          <Property Name="Md5sum" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="WBComments" Type="varchar(max)" />
+          <Property Name="FreeForms" Type="varchar(max)" />
+          <Property Name="WBConfigHashCode" Type="varchar(max)" />
+          <Property Name="CreatedDtim" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtim" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsageCheckHistories">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreatedDtim" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtim" Type="datetime" Nullable="false" />
+          <Property Name="IsSuccess" Type="bit" Nullable="false" />
+          <Property Name="Message" Type="varchar(max)" />
+          <Property Name="IsSendAlarm" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WoodblockModelKPIsModelStoreContainer">
+          <EntitySet Name="CompactModels" EntityType="Self.CompactModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FlightRankers" EntityType="Self.FlightRankers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flights" EntityType="Self.Flights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RankerModels" EntityType="Self.RankerModels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rankers" EntityType="Self.Rankers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsageCheckHistories" EntityType="Self.UsageCheckHistories" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Flights" EntityType="Model1.Flight" />
-          <EntitySet Name="Rankers" EntityType="Model1.Ranker" />
-          <EntitySet Name="Slots" EntityType="Model1.Slot" />
-        </EntityContainer>
-        <EntityType Name="Flight" >
+      <Schema Namespace="WoodblockModelKPIsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CompactModel">
+          <Key>
+            <PropertyRef Name="ModelId" />
+          </Key>
+          <Property Name="ModelId" Type="Int64" Nullable="false" />
+          <Property Name="ModelPath" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SlotId" Type="Int16" Nullable="false" />
+          <Property Name="FormatVersion" Type="Int16" Nullable="false" />
+          <Property Name="PipelineId" Type="Int64" />
+          <Property Name="TrainingEndTimeUTC" Type="DateTime" Precision="3" />
+          <Property Name="MaxFeatureId" Type="Int64" />
+          <Property Name="ModelSize" Type="Int64" />
+          <Property Name="CRC32C" Type="Int64" />
+          <Property Name="Md5sum" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IsProd" Type="Boolean" />
+          <Property Name="CreatedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EncodedSlotId" Type="Int16" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SlotName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FlightRanker">
+          <Key>
+            <PropertyRef Name="FlightId" />
+            <PropertyRef Name="RankerName" />
+            <PropertyRef Name="AbacusClassifierId" />
+          </Key>
+          <Property Name="FlightId" Type="Int64" Nullable="false" />
+          <Property Name="RankerName" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AbacusClassifierId" Type="Int16" Nullable="false" />
+          <Property Name="CreatedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtim" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Flight">
           <Key>
             <PropertyRef Name="FlightId" />
           </Key>
           <Property Name="FlightId" Type="Int64" Nullable="false" />
-          <Property Name="FlightName" Type="String" Nullable="false" />
-          <Property Name="FlightOwner" Type="String" Nullable="false" />
-          <Property Name="FlightPara1" Type="String" Nullable="true" />
-          <Property Name="FlightPara3" Type="String" Nullable="true" />
+          <Property Name="Owner" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BingFlightId" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="Tags" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="RunWeightXlite" Type="Decimal" Precision="7" Scale="6" />
+          <Property Name="RunWeightProd" Type="Decimal" Precision="7" Scale="6" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="AbacusClassifierModel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ACRFeaturesModelName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ParameterUpdatedTime" Type="DateTime" Precision="3" />
+          <Property Name="ParameterUpdatedBy" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="ProdDeployedTime" Type="DateTime" Precision="3" />
+          <Property Name="XliteDeployedTime" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="L1ModelName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceTypes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="LineId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Markets" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="StandardControlFlightId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TrafficClass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FlightClass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TrafficGroupManagedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RelevanceModels" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PClickClassifierConfigMap" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Ranker" >
+        <EntityType Name="RankerModel">
+          <Key>
+            <PropertyRef Name="RankerId" />
+            <PropertyRef Name="SlotId" />
+          </Key>
+          <Property Name="RankerId" Type="Int64" Nullable="false" />
+          <Property Name="SlotId" Type="Int16" Nullable="false" />
+          <Property Name="FormatVersion" Type="Int16" Nullable="false" />
+          <Property Name="WBConfig" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WBCRC32C" Type="Int64" />
+          <Property Name="CreatedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtim" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Ranker">
           <Key>
             <PropertyRef Name="RankerId" />
           </Key>
           <Property Name="RankerId" Type="Int64" Nullable="false" />
-          <Property Name="RankerName" Type="String" Nullable="false" />
-          <Property Name="RankerPath" Type="String" Nullable="false" />
+          <Property Name="RankerPath" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Version" Type="Int16" Nullable="false" />
+          <Property Name="IsProd" Type="Boolean" />
+          <Property Name="Md5sum" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WBComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FreeForms" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WBConfigHashCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtim" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="Slot" >
+        <EntityType Name="UsageCheckHistory">
           <Key>
-            <PropertyRef Name="SlotId" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="SlotId" Type="Int64" Nullable="false" />
-          <Property Name="SlotName" Type="String" Nullable="false" />
-          <Property Name="SlotOwner" Type="String" Nullable="false" />
-          <Property Name="FlightUsage" Type="String" Nullable="false" />
-          <Property Name="RankerUsage" Type="String" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreatedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtim" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsSuccess" Type="Boolean" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IsSendAlarm" Type="Boolean" Nullable="false" />
         </EntityType>
+        <EntityContainer Name="WoodblockModelKPIsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CompactModels" EntityType="Self.CompactModel" />
+          <EntitySet Name="FlightRankers" EntityType="Self.FlightRanker" />
+          <EntitySet Name="Flights" EntityType="Self.Flight" />
+          <EntitySet Name="RankerModels" EntityType="Self.RankerModel" />
+          <EntitySet Name="Rankers" EntityType="Self.Ranker" />
+          <EntitySet Name="UsageCheckHistories" EntityType="Self.UsageCheckHistory" />
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
-    <EntitySetMapping Name="Flights">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Flight)">
-        <MappingFragment StoreEntitySet="Flights">
-          <ScalarProperty Name="FlightId" ColumnName="FlightId" />
-          <ScalarProperty Name="FlightName" ColumnName="FlightName" />
-          <ScalarProperty Name="FlightOwner" ColumnName="FlightOwner" />
-          <ScalarProperty Name="FlightPara1" ColumnName="FlightPara1" />
-          <ScalarProperty Name="FlightPara3" ColumnName="FlightPara3" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Rankers">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Ranker)">
-        <MappingFragment StoreEntitySet="Rankers">
-          <ScalarProperty Name="RankerId" ColumnName="RankerId" />
-          <ScalarProperty Name="RankerName" ColumnName="RankerName" />
-          <ScalarProperty Name="RankerPath" ColumnName="RankerPath" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Slots">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.Slot)">
-        <MappingFragment StoreEntitySet="Slots">
-          <ScalarProperty Name="SlotId" ColumnName="SlotId" />
-          <ScalarProperty Name="SlotName" ColumnName="SlotName" />
-          <ScalarProperty Name="SlotOwner" ColumnName="SlotOwner" />
-          <ScalarProperty Name="FlightUsage" ColumnName="FlightUsage" />
-          <ScalarProperty Name="RankerUsage" ColumnName="RankerUsage" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-  </EntityContainerMapping>
-</Mapping></edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WoodblockModelKPIsModelStoreContainer" CdmEntityContainer="WoodblockModelKPIsEntities">
+          <EntitySetMapping Name="CompactModels">
+            <EntityTypeMapping TypeName="WoodblockModelKPIsModel.CompactModel">
+              <MappingFragment StoreEntitySet="CompactModels">
+                <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+                <ScalarProperty Name="ModelPath" ColumnName="ModelPath" />
+                <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+                <ScalarProperty Name="FormatVersion" ColumnName="FormatVersion" />
+                <ScalarProperty Name="PipelineId" ColumnName="PipelineId" />
+                <ScalarProperty Name="TrainingEndTimeUTC" ColumnName="TrainingEndTimeUTC" />
+                <ScalarProperty Name="MaxFeatureId" ColumnName="MaxFeatureId" />
+                <ScalarProperty Name="ModelSize" ColumnName="ModelSize" />
+                <ScalarProperty Name="CRC32C" ColumnName="CRC32C" />
+                <ScalarProperty Name="Md5sum" ColumnName="Md5sum" />
+                <ScalarProperty Name="IsProd" ColumnName="IsProd" />
+                <ScalarProperty Name="CreatedDtim" ColumnName="CreatedDtim" />
+                <ScalarProperty Name="ModifiedDtim" ColumnName="ModifiedDtim" />
+                <ScalarProperty Name="EncodedSlotId" ColumnName="EncodedSlotId" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SlotName" ColumnName="SlotName" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FlightRankers">
+            <EntityTypeMapping TypeName="WoodblockModelKPIsModel.FlightRanker">
+              <MappingFragment StoreEntitySet="FlightRankers">
+                <ScalarProperty Name="FlightId" ColumnName="FlightId" />
+                <ScalarProperty Name="RankerName" ColumnName="RankerName" />
+                <ScalarProperty Name="AbacusClassifierId" ColumnName="AbacusClassifierId" />
+                <ScalarProperty Name="CreatedDtim" ColumnName="CreatedDtim" />
+                <ScalarProperty Name="ModifiedDtim" ColumnName="ModifiedDtim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flights">
+            <EntityTypeMapping TypeName="WoodblockModelKPIsModel.Flight">
+              <MappingFragment StoreEntitySet="Flights">
+                <ScalarProperty Name="FlightId" ColumnName="FlightId" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BingFlightId" ColumnName="BingFlightId" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="RunWeightXlite" ColumnName="RunWeightXlite" />
+                <ScalarProperty Name="RunWeightProd" ColumnName="RunWeightProd" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AbacusClassifierModel" ColumnName="AbacusClassifierModel" />
+                <ScalarProperty Name="ACRFeaturesModelName" ColumnName="ACRFeaturesModelName" />
+                <ScalarProperty Name="ParameterUpdatedTime" ColumnName="ParameterUpdatedTime" />
+                <ScalarProperty Name="ParameterUpdatedBy" ColumnName="ParameterUpdatedBy" />
+                <ScalarProperty Name="ProdDeployedTime" ColumnName="ProdDeployedTime" />
+                <ScalarProperty Name="XliteDeployedTime" ColumnName="XliteDeployedTime" />
+                <ScalarProperty Name="CreatedDtim" ColumnName="CreatedDtim" />
+                <ScalarProperty Name="ModifiedDtim" ColumnName="ModifiedDtim" />
+                <ScalarProperty Name="L1ModelName" ColumnName="L1ModelName" />
+                <ScalarProperty Name="DeviceTypes" ColumnName="DeviceTypes" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="LineId" ColumnName="LineId" />
+                <ScalarProperty Name="Markets" ColumnName="Markets" />
+                <ScalarProperty Name="StandardControlFlightId" ColumnName="StandardControlFlightId" />
+                <ScalarProperty Name="TrafficClass" ColumnName="TrafficClass" />
+                <ScalarProperty Name="FlightClass" ColumnName="FlightClass" />
+                <ScalarProperty Name="TrafficGroupManagedBy" ColumnName="TrafficGroupManagedBy" />
+                <ScalarProperty Name="RelevanceModels" ColumnName="RelevanceModels" />
+                <ScalarProperty Name="PClickClassifierConfigMap" ColumnName="PClickClassifierConfigMap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RankerModels">
+            <EntityTypeMapping TypeName="WoodblockModelKPIsModel.RankerModel">
+              <MappingFragment StoreEntitySet="RankerModels">
+                <ScalarProperty Name="RankerId" ColumnName="RankerId" />
+                <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+                <ScalarProperty Name="FormatVersion" ColumnName="FormatVersion" />
+                <ScalarProperty Name="WBConfig" ColumnName="WBConfig" />
+                <ScalarProperty Name="WBCRC32C" ColumnName="WBCRC32C" />
+                <ScalarProperty Name="CreatedDtim" ColumnName="CreatedDtim" />
+                <ScalarProperty Name="ModifiedDtim" ColumnName="ModifiedDtim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rankers">
+            <EntityTypeMapping TypeName="WoodblockModelKPIsModel.Ranker">
+              <MappingFragment StoreEntitySet="Rankers">
+                <ScalarProperty Name="RankerId" ColumnName="RankerId" />
+                <ScalarProperty Name="RankerPath" ColumnName="RankerPath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="IsProd" ColumnName="IsProd" />
+                <ScalarProperty Name="Md5sum" ColumnName="Md5sum" />
+                <ScalarProperty Name="WBComments" ColumnName="WBComments" />
+                <ScalarProperty Name="FreeForms" ColumnName="FreeForms" />
+                <ScalarProperty Name="WBConfigHashCode" ColumnName="WBConfigHashCode" />
+                <ScalarProperty Name="CreatedDtim" ColumnName="CreatedDtim" />
+                <ScalarProperty Name="ModifiedDtim" ColumnName="ModifiedDtim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsageCheckHistories">
+            <EntityTypeMapping TypeName="WoodblockModelKPIsModel.UsageCheckHistory">
+              <MappingFragment StoreEntitySet="UsageCheckHistories">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CreatedDtim" ColumnName="CreatedDtim" />
+                <ScalarProperty Name="ModifiedDtim" ColumnName="ModifiedDtim" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="IsSendAlarm" ColumnName="IsSendAlarm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <edmx:Connection>
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
       </DesignerInfoPropertySet>
-    </edmx:Connection>
-    <edmx:Options>
+    </Connection>
+    <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
-    </edmx:Options>
+    </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <edmx:Diagrams>
-    </edmx:Diagrams>
-  </edmx:Designer>
+    <Diagrams></Diagrams>
+  </Designer>
 </edmx:Edmx>

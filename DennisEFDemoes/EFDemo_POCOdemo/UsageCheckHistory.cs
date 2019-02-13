@@ -12,18 +12,13 @@ namespace EFDemo_ModelFirstdemo
     using System;
     using System.Collections.Generic;
     
-    public partial class Ranker
+    public partial class UsageCheckHistory
     {
-        public long RankerId { get; set; }
-        public string RankerPath { get; set; }
-        public string Name { get; set; }
-        public short Version { get; set; }
-        public Nullable<bool> IsProd { get; set; }
-        public string Md5sum { get; set; }
-        public string WBComments { get; set; }
-        public string FreeForms { get; set; }
-        public string WBConfigHashCode { get; set; }
+        public long Id { get; set; }
         public System.DateTime CreatedDtim { get; set; }
         public System.DateTime ModifiedDtim { get; set; }
+        public bool IsSuccess { get; set; }
+        public string Message { get; set; }
+        public bool IsSendAlarm { get; set; }
     }
 }
