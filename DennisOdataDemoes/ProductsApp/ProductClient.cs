@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 1/26/2019 11:15:16 PM
+// Generation date: 5/5/2019 10:02:45 PM
 namespace ProductsApp.DennisOdataDemoes
 {
     /// <summary>
