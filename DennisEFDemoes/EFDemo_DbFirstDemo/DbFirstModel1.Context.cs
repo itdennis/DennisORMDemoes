@@ -25,8 +25,7 @@ namespace EFDemo_DbFirstDemo
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
-        public virtual DbSet<Blog> Blogs { get; set; }
-        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Essay> Essays { get; set; }
+        public virtual DbSet<SlotMemory> SlotMemories { get; set; }
     }
 }

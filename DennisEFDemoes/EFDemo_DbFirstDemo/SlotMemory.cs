@@ -12,14 +12,12 @@ namespace EFDemo_DbFirstDemo
     using System;
     using System.Collections.Generic;
     
-    public partial class Post
+    public partial class SlotMemory
     {
-        public int PostId { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public int BlogId { get; set; }
-        public string Abstract { get; set; }
-    
-        public virtual Blog Blog { get; set; }
+        public string AD_tag { get; set; }
+        public int Version { get; set; }
+        public string TotalSize { get; set; }
+        public string CPSize { get; set; }
+        public System.DateTime CreatedTime { get; set; }
     }
 }

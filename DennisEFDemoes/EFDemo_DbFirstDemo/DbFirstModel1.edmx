@@ -5,153 +5,109 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="BlogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="__MigrationHistory">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Blog.dbo.Essay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Essay">
           <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Title" />
           </Key>
-          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title2" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Blogs">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Blog.dbo.SlotMemory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SlotMemory">
           <Key>
-            <PropertyRef Name="BlogId" />
+            <PropertyRef Name="CreatedTime" />
+            <PropertyRef Name="AD tag" />
+            <PropertyRef Name="Version" />
+            <PropertyRef Name="TotalSize" />
           </Key>
-          <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NewName3" Type="nvarchar(max)" />
-          <Property Name="Url" Type="nvarchar(max)" />
-          <Property Name="Rating" Type="int" Nullable="false" />
-          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+          <Property Name="AD tag" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="TotalSize" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CPSize" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Posts">
-          <Key>
-            <PropertyRef Name="PostId" />
-          </Key>
-          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="200" />
-          <Property Name="Content" Type="nvarchar(max)" />
-          <Property Name="BlogId" Type="int" Nullable="false" />
-          <Property Name="Abstract" Type="nvarchar(max)" />
-        </EntityType>
-        <Association Name="FK_dbo_Posts_dbo_Blogs_BlogId">
-          <End Role="Blogs" Type="Self.Blogs" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Blogs">
-              <PropertyRef Name="BlogId" />
-            </Principal>
-            <Dependent Role="Posts">
-              <PropertyRef Name="BlogId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="BlogModelStoreContainer">
-          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_dbo_Posts_dbo_Blogs_BlogId" Association="Self.FK_dbo_Posts_dbo_Blogs_BlogId">
-            <End Role="Blogs" EntitySet="Blogs" />
-            <End Role="Posts" EntitySet="Posts" />
-          </AssociationSet>
+          <EntitySet Name="Essay" EntityType="Self.Essay" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Essay].[id] AS [id], 
+    [Essay].[Name] AS [Name], 
+    [Essay].[Title] AS [Title], 
+    [Essay].[Title2] AS [Title2]
+    FROM [dbo].[Essay] AS [Essay]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SlotMemory" EntityType="Self.SlotMemory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SlotMemory].[CreatedTime] AS [CreatedTime], 
+    [SlotMemory].[AD tag] AS [AD tag], 
+    [SlotMemory].[Version] AS [Version], 
+    [SlotMemory].[TotalSize] AS [TotalSize], 
+    [SlotMemory].[CPSize] AS [CPSize]
+    FROM [dbo].[SlotMemory] AS [SlotMemory]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BlogModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Blog">
-          <Key>
-            <PropertyRef Name="BlogId" />
-          </Key>
-          <Property Name="BlogId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Rating" Type="Int32" Nullable="false" />
-          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Posts" Relationship="Self.FK_dbo_Posts_dbo_Blogs_BlogId" FromRole="Blogs" ToRole="Posts" />
-          <Property Name="NewName3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Post">
-          <Key>
-            <PropertyRef Name="PostId" />
-          </Key>
-          <Property Name="PostId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BlogId" Type="Int32" Nullable="false" />
-          <Property Name="Abstract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Blog" Relationship="Self.FK_dbo_Posts_dbo_Blogs_BlogId" FromRole="Posts" ToRole="Blogs" />
-        </EntityType>
-        <Association Name="FK_dbo_Posts_dbo_Blogs_BlogId">
-          <End Role="Blogs" Type="Self.Blog" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Posts" Type="Self.Post" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Blogs">
-              <PropertyRef Name="BlogId" />
-            </Principal>
-            <Dependent Role="Posts">
-              <PropertyRef Name="BlogId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="BlogEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-          <EntitySet Name="Blogs" EntityType="Self.Blog" />
-          <EntitySet Name="Posts" EntityType="Self.Post" />
-          <AssociationSet Name="FK_dbo_Posts_dbo_Blogs_BlogId" Association="Self.FK_dbo_Posts_dbo_Blogs_BlogId">
-            <End Role="Blogs" EntitySet="Blogs" />
-            <End Role="Posts" EntitySet="Posts" />
-          </AssociationSet>
+          <EntitySet Name="Essays" EntityType="BlogModel.Essay" />
+          <EntitySet Name="SlotMemories" EntityType="BlogModel.SlotMemory" />
         </EntityContainer>
+        <EntityType Name="Essay">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Title" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Title2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SlotMemory">
+          <Key>
+            <PropertyRef Name="AD_tag" />
+            <PropertyRef Name="Version" />
+            <PropertyRef Name="TotalSize" />
+            <PropertyRef Name="CreatedTime" />
+          </Key>
+          <Property Name="AD_tag" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Version" Type="Int32" Nullable="false" />
+          <Property Name="TotalSize" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CPSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BlogModelStoreContainer" CdmEntityContainer="BlogEntities">
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="BlogModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Blogs">
-            <EntityTypeMapping TypeName="BlogModel.Blog">
-              <MappingFragment StoreEntitySet="Blogs">
-                <ScalarProperty Name="NewName3" ColumnName="NewName3" />
-                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Posts">
-            <EntityTypeMapping TypeName="BlogModel.Post">
-              <MappingFragment StoreEntitySet="Posts">
-                <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <EntitySetMapping Name="Essays">
+            <EntityTypeMapping TypeName="BlogModel.Essay">
+              <MappingFragment StoreEntitySet="Essay">
+                <ScalarProperty Name="Title2" ColumnName="Title2" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
-                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SlotMemories">
+            <EntityTypeMapping TypeName="BlogModel.SlotMemory">
+              <MappingFragment StoreEntitySet="SlotMemory">
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="CPSize" ColumnName="CPSize" />
+                <ScalarProperty Name="TotalSize" ColumnName="TotalSize" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="AD_tag" ColumnName="AD tag" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

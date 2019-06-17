@@ -12,11 +12,11 @@ namespace EFDemo_DbFirstDemo
     using System;
     using System.Collections.Generic;
     
-    public partial class C__MigrationHistory
+    public partial class Essay
     {
-        public string MigrationId { get; set; }
-        public string ContextKey { get; set; }
-        public byte[] Model { get; set; }
-        public string ProductVersion { get; set; }
+        public long id { get; set; }
+        public string Name { get; set; }
+        public string Title { get; set; }
+        public string Title2 { get; set; }
     }
 }

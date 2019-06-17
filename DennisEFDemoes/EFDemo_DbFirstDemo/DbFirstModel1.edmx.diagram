@@ -5,10 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="58549944acea4a95adc948844994e423" Name="Diagram1">
-        <EntityTypeShape EntityType="BlogModel.C__MigrationHistory" Width="1.5" PointX="5.375" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BlogModel.Blog" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BlogModel.Post" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="BlogModel.FK_dbo_Posts_dbo_Blogs_BlogId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BlogModel.Essay" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BlogModel.SlotMemory" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

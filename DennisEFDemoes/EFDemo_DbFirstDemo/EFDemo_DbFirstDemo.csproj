@@ -52,12 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blog.cs">
-      <DependentUpon>DbFirstModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>DbFirstModel1.tt</DependentUpon>
-    </Compile>
     <Compile Include="DbFirstModel1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,11 +67,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbFirstModel1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Post.cs">
+    <Compile Include="Essay.cs">
       <DependentUpon>DbFirstModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SlotMemory.cs">
+      <DependentUpon>DbFirstModel1.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
