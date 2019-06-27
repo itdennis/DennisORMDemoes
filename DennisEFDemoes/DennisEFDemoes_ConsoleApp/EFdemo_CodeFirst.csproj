@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CodeFirstDemo\DBContext\Ef6RecipesContext.cs" />
     <Compile Include="CodeFirstDemo\DBModels\PictureCategory.cs" />
+    <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -10,25 +10,25 @@ namespace DennisEFDemoes_ConsoleApp
     {
         static void Main(string[] args)
         {
-            RunExample();
+            new Program().RunExample();
             Console.ReadKey();
 
         }
 
-        static void RunExample()
+        void RunExample()
         {
             using (var context = new Ef6RecipesContext())
             {
-                var louvre = new PictureCategory { Name = "Louvre" };
-                var child = new PictureCategory { Name = "Egyptian ANTIQUITéS" };
+                var louvre = new PictureCategory { Name = $"Louvre-{DateTime.UtcNow}" };
+                var child = new PictureCategory { Name = $"Egyptian ANTIQUITéS-{DateTime.UtcNow}" };
                 louvre.Subcategories.Add(child);
-                child = new PictureCategory { Name = "Sculptures" };
+                child = new PictureCategory { Name = $"Sculptures-{DateTime.UtcNow}" };
                 louvre.Subcategories.Add(child);
-                child = new PictureCategory { Name = "Paintings" };
+                child = new PictureCategory { Name = $"Paintings-{DateTime.UtcNow}" };
                 louvre.Subcategories.Add(child);
-                var paris = new PictureCategory { Name = "Paris" };
+                var paris = new PictureCategory { Name = $"Paris-{DateTime.UtcNow}" };
                 paris.Subcategories.Add(louvre);
-                var vacation = new PictureCategory { Name = "Summer Vacation" };
+                var vacation = new PictureCategory { Name = $"Summer Vacation-{DateTime.UtcNow}" };
                 vacation.Subcategories.Add(paris);
                 context.PictureCategories.Add(paris);
                 context.SaveChanges();
