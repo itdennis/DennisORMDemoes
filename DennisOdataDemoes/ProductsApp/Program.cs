@@ -13,22 +13,32 @@ namespace ProductsApp
         {
             string serviceUri = "http://localhost:62253/";
             var container = new Default.Container(new Uri(serviceUri));
-            //IRepository<Product> productRepository = new DbContextRepository<Product>(container);
-            var pr = container.Products.Select(p => p).Where(p => p.Id == 1).FirstOrDefault();
+
+            //var product = container.Products.Select(p => p).Where(p => p.Id == 2002).FirstOrDefault();
+
+
+            //container.DeleteObject(product);
+
+            //product.Name = "updated 2002 name";
+            //container.UpdateObject(product);
+
+
             var product = new Product()
             {
-                Id = 1,
                 Name = "Yo-yo update 1",
                 Category = "Toys",
                 Price = 4.95M
             };
+            container.AddToProducts(product);
 
-            //pr.Name = "updated p name";
-            container.DeleteObject(pr);
+
+
+
 
             try
             {
-                new Func<DataServiceResponse>(() => container.SaveChanges()).SafeSaveChange(HttpStatusCode.Created);
+                new Func<DataServiceResponse>(() => container.SaveChanges()).SafeSaveChange(HttpStatusCode.Created, product.GetType());
+                Console.WriteLine($"the operation of entity is {product.Id}.");
             }
             catch (Exception e)
             {
