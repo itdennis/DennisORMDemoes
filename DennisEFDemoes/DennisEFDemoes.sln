@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_CodeFirst", "DennisEFDemoes_ConsoleApp\EFdemo_CodeFirst.csproj", "{AE746E97-6EE4-42CF-AB80-F3566DAF474F}"
 EndProject
@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_MVC_EF6_WebApp", "EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_LoadMechanism", "EFdemo_LoadMechanism\EFdemo_LoadMechanism.csproj", "{70D2453B-0E87-4020-AE7D-1BA5E9DCA7B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFdemo_migrationDemo", "EFdemo_migrationDemo\EFdemo_migrationDemo.csproj", "{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_CodeFirstExistingDatabaseSample", "EFDemo_CodeFirstExistingDatabaseSample\EFDemo_CodeFirstExistingDatabaseSample.csproj", "{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_Many2ManyDemo", "EFDemo_Many2ManyDemo\EFDemo_Many2ManyDemo.csproj", "{FF8FB145-0DC5-4ED1-A150-3826B980E2EF}"
@@ -24,6 +22,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_ModelFirstdemo", "EFDemo_POCOdemo\EFDemo_ModelFirstdemo.csproj", "{1053CFDF-5AA6-4108-98C1-30D342CC135C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_DbFirstDemo", "EFDemo_DbFirstDemo\EFDemo_DbFirstDemo.csproj", "{D98D9A56-A60F-4051-B61D-591E22EDB443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo_Just4Test", "EFDemo_Just4Test\EFDemo_Just4Test.csproj", "{91DB3280-9B6C-4DC3-87D1-343378943C8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,6 @@ Global
 		{70D2453B-0E87-4020-AE7D-1BA5E9DCA7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70D2453B-0E87-4020-AE7D-1BA5E9DCA7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70D2453B-0E87-4020-AE7D-1BA5E9DCA7B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1171451C-9B85-4BBA-B37E-6CC1BC02C3CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CA6A443-C4BA-4DD9-99BF-DF38413F5B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +71,10 @@ Global
 		{D98D9A56-A60F-4051-B61D-591E22EDB443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D98D9A56-A60F-4051-B61D-591E22EDB443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D98D9A56-A60F-4051-B61D-591E22EDB443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DB3280-9B6C-4DC3-87D1-343378943C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DB3280-9B6C-4DC3-87D1-343378943C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DB3280-9B6C-4DC3-87D1-343378943C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DB3280-9B6C-4DC3-87D1-343378943C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

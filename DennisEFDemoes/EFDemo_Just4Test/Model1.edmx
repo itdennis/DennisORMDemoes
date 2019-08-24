@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="waspModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ConfigInfoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ConfigName" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="SlotId" Type="int" Nullable="false" />
+          <Property Name="ConfigPayload" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Desc" Type="nvarchar(max)" />
+          <Property Name="Owner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="SubmitIntervalHours" Type="int" Nullable="false" />
+          <Property Name="CreateDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="InterfaceConfigPayload" Type="nvarchar(max)" />
+          <Property Name="JobType" Type="int" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FilePublishInfoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="SlotId" Type="int" Nullable="false" />
+          <Property Name="PartitionCount" Type="int" Nullable="false" />
+          <Property Name="ModelFilePattern" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CheckSumFilePattern" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tag" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModelTarget" Type="int" Nullable="false" />
+          <Property Name="TargetEnv" Type="int" Nullable="false" />
+          <Property Name="SourceExperimentId" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="TrainingEndTime" Type="datetime" Nullable="false" />
+          <Property Name="PublishRecord" Type="nvarchar(max)" />
+          <Property Name="Owner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsManualPublish" Type="bit" Nullable="false" />
+          <Property Name="CreateDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="FilePublishStrategyName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FilePublishStrategies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="StrategyName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PartitionCount" Type="int" Nullable="false" />
+          <Property Name="TargetModelFilePattern" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TargetRootPathSi" Type="nvarchar(max)" />
+          <Property Name="TargetRootPathXLite" Type="nvarchar(max)" />
+          <Property Name="TargetRootPathProd" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Tag" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModelTarget" Type="int" Nullable="false" />
+          <Property Name="CreateDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JobInfoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="SlotId" Type="int" Nullable="false" />
+          <Property Name="ExperimentId" Type="nvarchar" MaxLength="450" />
+          <Property Name="JobDesc" Type="nvarchar(max)" />
+          <Property Name="Tag" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TrainingEndTime" Type="datetime" Nullable="false" />
+          <Property Name="Config" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PublishRecord" Type="nvarchar(max)" />
+          <Property Name="SubmitService" Type="nvarchar(max)" />
+          <Property Name="JobType" Type="int" Nullable="false" />
+          <Property Name="Owner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RetryTime" Type="int" Nullable="false" />
+          <Property Name="CreateDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="InterfaceConfig" Type="nvarchar(max)" />
+          <Property Name="ValidationRecord" Type="nvarchar(max)" />
+          <Property Name="OperationType" Type="int" Nullable="false" />
+          <Property Name="LineCount" Type="bigint" Nullable="false" />
+          <Property Name="Impressions" Type="bigint" Nullable="false" />
+          <Property Name="Ctr" Type="float" Nullable="false" />
+          <Property Name="MaxFeatureId" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MetricsInfoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="JobId" Type="bigint" Nullable="false" />
+          <Property Name="Slice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Impression" Type="bigint" Nullable="false" />
+          <Property Name="Click" Type="bigint" Nullable="false" />
+          <Property Name="CTR" Type="float" Nullable="false" />
+          <Property Name="AUC" Type="float" Nullable="false" />
+          <Property Name="PRAUC" Type="float" Nullable="false" />
+          <Property Name="LogLoss" Type="float" Nullable="false" />
+          <Property Name="RIG" Type="float" Nullable="false" />
+          <Property Name="PredictionError" Type="float" Nullable="false" />
+          <Property Name="AvgPclick" Type="float" Nullable="false" />
+          <Property Name="CreatedDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="ValidationDataName" Type="nvarchar(max)" />
+          <Property Name="ValidationDataPath" Type="nvarchar(max)" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MonitorInfoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Config" Type="nvarchar(max)" />
+          <Property Name="SubmitService" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ServiceHost" Type="nvarchar(max)" />
+          <Property Name="MonitorType" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Owner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ReportMailBody" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ReportDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OpsRecords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ExperimentId" Type="nvarchar" MaxLength="450" />
+          <Property Name="SlotId" Type="int" Nullable="false" />
+          <Property Name="OperationType" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="CreateDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="OperationDetail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OperationResult" Type="bit" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfoes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="UserAlias" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserDomain" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserRole" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CreatedDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'wasp.dbo.FilePublishStrategyView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FilePublishStrategyView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="SlotId" />
+            <PropertyRef Name="FilePublishStrategyName" />
+            <PropertyRef Name="PartitionCount" />
+            <PropertyRef Name="ModelFilePattern" />
+            <PropertyRef Name="CheckSumFilePattern" />
+            <PropertyRef Name="Tag" />
+            <PropertyRef Name="ModelTarget" />
+            <PropertyRef Name="TargetEnv" />
+            <PropertyRef Name="TrainingEndTime" />
+            <PropertyRef Name="Owner" />
+            <PropertyRef Name="IsManualPublish" />
+            <PropertyRef Name="CreateDtm" />
+            <PropertyRef Name="ModifiedDtm" />
+            <PropertyRef Name="TargetModelFilePattern" />
+            <PropertyRef Name="TargetRootPathProd" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="SlotId" Type="int" Nullable="false" />
+          <Property Name="FilePublishStrategyName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PartitionCount" Type="int" Nullable="false" />
+          <Property Name="ModelFilePattern" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CheckSumFilePattern" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tag" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ModelTarget" Type="int" Nullable="false" />
+          <Property Name="TargetEnv" Type="int" Nullable="false" />
+          <Property Name="SourceExperimentId" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="TrainingEndTime" Type="datetime" Nullable="false" />
+          <Property Name="PublishRecord" Type="nvarchar(max)" />
+          <Property Name="Owner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsManualPublish" Type="bit" Nullable="false" />
+          <Property Name="CreateDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="StrategyName" Type="nvarchar" MaxLength="255" />
+          <Property Name="TargetModelFilePattern" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TargetRootPathSi" Type="nvarchar(max)" />
+          <Property Name="TargetRootPathXLite" Type="nvarchar(max)" />
+          <Property Name="TargetRootPathProd" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'wasp.dbo.JobMetricsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="JobMetricsView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="Slice" />
+            <PropertyRef Name="Impression" />
+            <PropertyRef Name="Click" />
+            <PropertyRef Name="CTR" />
+            <PropertyRef Name="AUC" />
+            <PropertyRef Name="PRAUC" />
+            <PropertyRef Name="LogLoss" />
+            <PropertyRef Name="RIG" />
+            <PropertyRef Name="PredictionError" />
+            <PropertyRef Name="AvgPclick" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="SlotId" />
+            <PropertyRef Name="Tag" />
+            <PropertyRef Name="JobType" />
+            <PropertyRef Name="TrainingEndTime" />
+            <PropertyRef Name="Config" />
+            <PropertyRef Name="Owner" />
+            <PropertyRef Name="CreatedDtm" />
+            <PropertyRef Name="ModifiedDtm" />
+            <PropertyRef Name="TrainingLineCount" />
+            <PropertyRef Name="TrainingImpressions" />
+            <PropertyRef Name="TrainingCtr" />
+            <PropertyRef Name="TrainingMaxFeatureId" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="JobId" Type="bigint" Nullable="false" />
+          <Property Name="Slice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Impression" Type="bigint" Nullable="false" />
+          <Property Name="Click" Type="bigint" Nullable="false" />
+          <Property Name="CTR" Type="float" Nullable="false" />
+          <Property Name="AUC" Type="float" Nullable="false" />
+          <Property Name="PRAUC" Type="float" Nullable="false" />
+          <Property Name="LogLoss" Type="float" Nullable="false" />
+          <Property Name="RIG" Type="float" Nullable="false" />
+          <Property Name="PredictionError" Type="float" Nullable="false" />
+          <Property Name="AvgPclick" Type="float" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="SlotId" Type="int" Nullable="false" />
+          <Property Name="JobDesc" Type="nvarchar(max)" />
+          <Property Name="ExperimentId" Type="nvarchar" MaxLength="450" />
+          <Property Name="Tag" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JobType" Type="int" Nullable="false" />
+          <Property Name="TrainingEndTime" Type="datetime" Nullable="false" />
+          <Property Name="Config" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SubmitService" Type="nvarchar(max)" />
+          <Property Name="Owner" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedDtm" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDtm" Type="datetime" Nullable="false" />
+          <Property Name="TrainingLineCount" Type="bigint" Nullable="false" />
+          <Property Name="TrainingImpressions" Type="bigint" Nullable="false" />
+          <Property Name="TrainingCtr" Type="float" Nullable="false" />
+          <Property Name="TrainingMaxFeatureId" Type="bigint" Nullable="false" />
+          <Property Name="ValidationDataName" Type="nvarchar(max)" />
+          <Property Name="ValidationDataPath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="waspModelStoreContainer">
+          <EntitySet Name="ConfigInfoes" EntityType="Self.ConfigInfoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilePublishInfoes" EntityType="Self.FilePublishInfoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilePublishStrategies" EntityType="Self.FilePublishStrategies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobInfoes" EntityType="Self.JobInfoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MetricsInfoes" EntityType="Self.MetricsInfoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MonitorInfoes" EntityType="Self.MonitorInfoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OpsRecords" EntityType="Self.OpsRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilePublishStrategyView" EntityType="Self.FilePublishStrategyView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FilePublishStrategyView].[Id] AS [Id], 
+    [FilePublishStrategyView].[Status] AS [Status], 
+    [FilePublishStrategyView].[SlotId] AS [SlotId], 
+    [FilePublishStrategyView].[FilePublishStrategyName] AS [FilePublishStrategyName], 
+    [FilePublishStrategyView].[PartitionCount] AS [PartitionCount], 
+    [FilePublishStrategyView].[ModelFilePattern] AS [ModelFilePattern], 
+    [FilePublishStrategyView].[CheckSumFilePattern] AS [CheckSumFilePattern], 
+    [FilePublishStrategyView].[Tag] AS [Tag], 
+    [FilePublishStrategyView].[ModelTarget] AS [ModelTarget], 
+    [FilePublishStrategyView].[TargetEnv] AS [TargetEnv], 
+    [FilePublishStrategyView].[SourceExperimentId] AS [SourceExperimentId], 
+    [FilePublishStrategyView].[Description] AS [Description], 
+    [FilePublishStrategyView].[TrainingEndTime] AS [TrainingEndTime], 
+    [FilePublishStrategyView].[PublishRecord] AS [PublishRecord], 
+    [FilePublishStrategyView].[Owner] AS [Owner], 
+    [FilePublishStrategyView].[IsManualPublish] AS [IsManualPublish], 
+    [FilePublishStrategyView].[CreateDtm] AS [CreateDtm], 
+    [FilePublishStrategyView].[ModifiedDtm] AS [ModifiedDtm], 
+    [FilePublishStrategyView].[StrategyName] AS [StrategyName], 
+    [FilePublishStrategyView].[TargetModelFilePattern] AS [TargetModelFilePattern], 
+    [FilePublishStrategyView].[TargetRootPathSi] AS [TargetRootPathSi], 
+    [FilePublishStrategyView].[TargetRootPathXLite] AS [TargetRootPathXLite], 
+    [FilePublishStrategyView].[TargetRootPathProd] AS [TargetRootPathProd]
+    FROM [dbo].[FilePublishStrategyView] AS [FilePublishStrategyView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="JobMetricsView" EntityType="Self.JobMetricsView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [JobMetricsView].[Id] AS [Id], 
+    [JobMetricsView].[JobId] AS [JobId], 
+    [JobMetricsView].[Slice] AS [Slice], 
+    [JobMetricsView].[Impression] AS [Impression], 
+    [JobMetricsView].[Click] AS [Click], 
+    [JobMetricsView].[CTR] AS [CTR], 
+    [JobMetricsView].[AUC] AS [AUC], 
+    [JobMetricsView].[PRAUC] AS [PRAUC], 
+    [JobMetricsView].[LogLoss] AS [LogLoss], 
+    [JobMetricsView].[RIG] AS [RIG], 
+    [JobMetricsView].[PredictionError] AS [PredictionError], 
+    [JobMetricsView].[AvgPclick] AS [AvgPclick], 
+    [JobMetricsView].[Status] AS [Status], 
+    [JobMetricsView].[SlotId] AS [SlotId], 
+    [JobMetricsView].[JobDesc] AS [JobDesc], 
+    [JobMetricsView].[ExperimentId] AS [ExperimentId], 
+    [JobMetricsView].[Tag] AS [Tag], 
+    [JobMetricsView].[JobType] AS [JobType], 
+    [JobMetricsView].[TrainingEndTime] AS [TrainingEndTime], 
+    [JobMetricsView].[Config] AS [Config], 
+    [JobMetricsView].[SubmitService] AS [SubmitService], 
+    [JobMetricsView].[Owner] AS [Owner], 
+    [JobMetricsView].[CreatedDtm] AS [CreatedDtm], 
+    [JobMetricsView].[ModifiedDtm] AS [ModifiedDtm], 
+    [JobMetricsView].[TrainingLineCount] AS [TrainingLineCount], 
+    [JobMetricsView].[TrainingImpressions] AS [TrainingImpressions], 
+    [JobMetricsView].[TrainingCtr] AS [TrainingCtr], 
+    [JobMetricsView].[TrainingMaxFeatureId] AS [TrainingMaxFeatureId], 
+    [JobMetricsView].[ValidationDataName] AS [ValidationDataName], 
+    [JobMetricsView].[ValidationDataPath] AS [ValidationDataPath]
+    FROM [dbo].[JobMetricsView] AS [JobMetricsView]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="waspModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ConfigInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ConfigName" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SlotId" Type="Int32" Nullable="false" />
+          <Property Name="ConfigPayload" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="SubmitIntervalHours" Type="Int32" Nullable="false" />
+          <Property Name="CreateDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InterfaceConfigPayload" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobType" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="FilePublishInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="SlotId" Type="Int32" Nullable="false" />
+          <Property Name="PartitionCount" Type="Int32" Nullable="false" />
+          <Property Name="ModelFilePattern" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CheckSumFilePattern" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModelTarget" Type="Int32" Nullable="false" />
+          <Property Name="TargetEnv" Type="Int32" Nullable="false" />
+          <Property Name="SourceExperimentId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TrainingEndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PublishRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsManualPublish" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FilePublishStrategyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="FilePublishStrategy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="StrategyName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PartitionCount" Type="Int32" Nullable="false" />
+          <Property Name="TargetModelFilePattern" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TargetRootPathSi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TargetRootPathXLite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TargetRootPathProd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModelTarget" Type="Int32" Nullable="false" />
+          <Property Name="CreateDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="JobInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="SlotId" Type="Int32" Nullable="false" />
+          <Property Name="ExperimentId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="JobDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TrainingEndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Config" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PublishRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitService" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobType" Type="Int32" Nullable="false" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RetryTime" Type="Int32" Nullable="false" />
+          <Property Name="CreateDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InterfaceConfig" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ValidationRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperationType" Type="Int32" Nullable="false" />
+          <Property Name="LineCount" Type="Int64" Nullable="false" />
+          <Property Name="Impressions" Type="Int64" Nullable="false" />
+          <Property Name="Ctr" Type="Double" Nullable="false" />
+          <Property Name="MaxFeatureId" Type="Int64" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="MetricsInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="JobId" Type="Int64" Nullable="false" />
+          <Property Name="Slice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Impression" Type="Int64" Nullable="false" />
+          <Property Name="Click" Type="Int64" Nullable="false" />
+          <Property Name="CTR" Type="Double" Nullable="false" />
+          <Property Name="AUC" Type="Double" Nullable="false" />
+          <Property Name="PRAUC" Type="Double" Nullable="false" />
+          <Property Name="LogLoss" Type="Double" Nullable="false" />
+          <Property Name="RIG" Type="Double" Nullable="false" />
+          <Property Name="PredictionError" Type="Double" Nullable="false" />
+          <Property Name="AvgPclick" Type="Double" Nullable="false" />
+          <Property Name="CreatedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ValidationDataName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ValidationDataPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="MonitorInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Config" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitService" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServiceHost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MonitorType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReportMailBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="OpsRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ExperimentId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="SlotId" Type="Int32" Nullable="false" />
+          <Property Name="OperationType" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OperationDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OperationResult" Type="Boolean" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="UserAlias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserDomain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserRole" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="FilePublishStrategyView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="SlotId" />
+            <PropertyRef Name="FilePublishStrategyName" />
+            <PropertyRef Name="PartitionCount" />
+            <PropertyRef Name="ModelFilePattern" />
+            <PropertyRef Name="CheckSumFilePattern" />
+            <PropertyRef Name="Tag" />
+            <PropertyRef Name="ModelTarget" />
+            <PropertyRef Name="TargetEnv" />
+            <PropertyRef Name="TrainingEndTime" />
+            <PropertyRef Name="Owner" />
+            <PropertyRef Name="IsManualPublish" />
+            <PropertyRef Name="CreateDtm" />
+            <PropertyRef Name="ModifiedDtm" />
+            <PropertyRef Name="TargetModelFilePattern" />
+            <PropertyRef Name="TargetRootPathProd" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="SlotId" Type="Int32" Nullable="false" />
+          <Property Name="FilePublishStrategyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PartitionCount" Type="Int32" Nullable="false" />
+          <Property Name="ModelFilePattern" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CheckSumFilePattern" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModelTarget" Type="Int32" Nullable="false" />
+          <Property Name="TargetEnv" Type="Int32" Nullable="false" />
+          <Property Name="SourceExperimentId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TrainingEndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PublishRecord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsManualPublish" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StrategyName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TargetModelFilePattern" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TargetRootPathSi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TargetRootPathXLite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TargetRootPathProd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JobMetricsView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="JobId" />
+            <PropertyRef Name="Slice" />
+            <PropertyRef Name="Impression" />
+            <PropertyRef Name="Click" />
+            <PropertyRef Name="CTR" />
+            <PropertyRef Name="AUC" />
+            <PropertyRef Name="PRAUC" />
+            <PropertyRef Name="LogLoss" />
+            <PropertyRef Name="RIG" />
+            <PropertyRef Name="PredictionError" />
+            <PropertyRef Name="AvgPclick" />
+            <PropertyRef Name="Status" />
+            <PropertyRef Name="SlotId" />
+            <PropertyRef Name="Tag" />
+            <PropertyRef Name="JobType" />
+            <PropertyRef Name="TrainingEndTime" />
+            <PropertyRef Name="Config" />
+            <PropertyRef Name="Owner" />
+            <PropertyRef Name="CreatedDtm" />
+            <PropertyRef Name="ModifiedDtm" />
+            <PropertyRef Name="TrainingLineCount" />
+            <PropertyRef Name="TrainingImpressions" />
+            <PropertyRef Name="TrainingCtr" />
+            <PropertyRef Name="TrainingMaxFeatureId" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="JobId" Type="Int64" Nullable="false" />
+          <Property Name="Slice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Impression" Type="Int64" Nullable="false" />
+          <Property Name="Click" Type="Int64" Nullable="false" />
+          <Property Name="CTR" Type="Double" Nullable="false" />
+          <Property Name="AUC" Type="Double" Nullable="false" />
+          <Property Name="PRAUC" Type="Double" Nullable="false" />
+          <Property Name="LogLoss" Type="Double" Nullable="false" />
+          <Property Name="RIG" Type="Double" Nullable="false" />
+          <Property Name="PredictionError" Type="Double" Nullable="false" />
+          <Property Name="AvgPclick" Type="Double" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="SlotId" Type="Int32" Nullable="false" />
+          <Property Name="JobDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExperimentId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Tag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JobType" Type="Int32" Nullable="false" />
+          <Property Name="TrainingEndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Config" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubmitService" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDtm" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TrainingLineCount" Type="Int64" Nullable="false" />
+          <Property Name="TrainingImpressions" Type="Int64" Nullable="false" />
+          <Property Name="TrainingCtr" Type="Double" Nullable="false" />
+          <Property Name="TrainingMaxFeatureId" Type="Int64" Nullable="false" />
+          <Property Name="ValidationDataName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ValidationDataPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="waspEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConfigInfoes" EntityType="Self.ConfigInfo" />
+          <EntitySet Name="FilePublishInfoes" EntityType="Self.FilePublishInfo" />
+          <EntitySet Name="FilePublishStrategies" EntityType="Self.FilePublishStrategy" />
+          <EntitySet Name="JobInfoes" EntityType="Self.JobInfo" />
+          <EntitySet Name="MetricsInfoes" EntityType="Self.MetricsInfo" />
+          <EntitySet Name="MonitorInfoes" EntityType="Self.MonitorInfo" />
+          <EntitySet Name="OpsRecords" EntityType="Self.OpsRecord" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <EntitySet Name="FilePublishStrategyViews" EntityType="Self.FilePublishStrategyView" />
+          <EntitySet Name="JobMetricsViews" EntityType="Self.JobMetricsView" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="waspModelStoreContainer" CdmEntityContainer="waspEntities">
+          <EntitySetMapping Name="ConfigInfoes">
+            <EntityTypeMapping TypeName="waspModel.ConfigInfo">
+              <MappingFragment StoreEntitySet="ConfigInfoes">
+                <ScalarProperty Name="ConfigName" ColumnName="ConfigName" />
+                <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+                <ScalarProperty Name="ConfigPayload" ColumnName="ConfigPayload" />
+                <ScalarProperty Name="Desc" ColumnName="Desc" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SubmitIntervalHours" ColumnName="SubmitIntervalHours" />
+                <ScalarProperty Name="CreateDtm" ColumnName="CreateDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="InterfaceConfigPayload" ColumnName="InterfaceConfigPayload" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilePublishInfoes">
+            <EntityTypeMapping TypeName="waspModel.FilePublishInfo">
+              <MappingFragment StoreEntitySet="FilePublishInfoes">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+                <ScalarProperty Name="PartitionCount" ColumnName="PartitionCount" />
+                <ScalarProperty Name="ModelFilePattern" ColumnName="ModelFilePattern" />
+                <ScalarProperty Name="CheckSumFilePattern" ColumnName="CheckSumFilePattern" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="ModelTarget" ColumnName="ModelTarget" />
+                <ScalarProperty Name="TargetEnv" ColumnName="TargetEnv" />
+                <ScalarProperty Name="SourceExperimentId" ColumnName="SourceExperimentId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TrainingEndTime" ColumnName="TrainingEndTime" />
+                <ScalarProperty Name="PublishRecord" ColumnName="PublishRecord" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="IsManualPublish" ColumnName="IsManualPublish" />
+                <ScalarProperty Name="CreateDtm" ColumnName="CreateDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="FilePublishStrategyName" ColumnName="FilePublishStrategyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilePublishStrategies">
+            <EntityTypeMapping TypeName="waspModel.FilePublishStrategy">
+              <MappingFragment StoreEntitySet="FilePublishStrategies">
+                <ScalarProperty Name="StrategyName" ColumnName="StrategyName" />
+                <ScalarProperty Name="PartitionCount" ColumnName="PartitionCount" />
+                <ScalarProperty Name="TargetModelFilePattern" ColumnName="TargetModelFilePattern" />
+                <ScalarProperty Name="TargetRootPathSi" ColumnName="TargetRootPathSi" />
+                <ScalarProperty Name="TargetRootPathXLite" ColumnName="TargetRootPathXLite" />
+                <ScalarProperty Name="TargetRootPathProd" ColumnName="TargetRootPathProd" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="ModelTarget" ColumnName="ModelTarget" />
+                <ScalarProperty Name="CreateDtm" ColumnName="CreateDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobInfoes">
+            <EntityTypeMapping TypeName="waspModel.JobInfo">
+              <MappingFragment StoreEntitySet="JobInfoes">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+                <ScalarProperty Name="ExperimentId" ColumnName="ExperimentId" />
+                <ScalarProperty Name="JobDesc" ColumnName="JobDesc" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="TrainingEndTime" ColumnName="TrainingEndTime" />
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="PublishRecord" ColumnName="PublishRecord" />
+                <ScalarProperty Name="SubmitService" ColumnName="SubmitService" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="RetryTime" ColumnName="RetryTime" />
+                <ScalarProperty Name="CreateDtm" ColumnName="CreateDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="InterfaceConfig" ColumnName="InterfaceConfig" />
+                <ScalarProperty Name="ValidationRecord" ColumnName="ValidationRecord" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+                <ScalarProperty Name="LineCount" ColumnName="LineCount" />
+                <ScalarProperty Name="Impressions" ColumnName="Impressions" />
+                <ScalarProperty Name="Ctr" ColumnName="Ctr" />
+                <ScalarProperty Name="MaxFeatureId" ColumnName="MaxFeatureId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MetricsInfoes">
+            <EntityTypeMapping TypeName="waspModel.MetricsInfo">
+              <MappingFragment StoreEntitySet="MetricsInfoes">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="Slice" ColumnName="Slice" />
+                <ScalarProperty Name="Impression" ColumnName="Impression" />
+                <ScalarProperty Name="Click" ColumnName="Click" />
+                <ScalarProperty Name="CTR" ColumnName="CTR" />
+                <ScalarProperty Name="AUC" ColumnName="AUC" />
+                <ScalarProperty Name="PRAUC" ColumnName="PRAUC" />
+                <ScalarProperty Name="LogLoss" ColumnName="LogLoss" />
+                <ScalarProperty Name="RIG" ColumnName="RIG" />
+                <ScalarProperty Name="PredictionError" ColumnName="PredictionError" />
+                <ScalarProperty Name="AvgPclick" ColumnName="AvgPclick" />
+                <ScalarProperty Name="CreatedDtm" ColumnName="CreatedDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="ValidationDataName" ColumnName="ValidationDataName" />
+                <ScalarProperty Name="ValidationDataPath" ColumnName="ValidationDataPath" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonitorInfoes">
+            <EntityTypeMapping TypeName="waspModel.MonitorInfo">
+              <MappingFragment StoreEntitySet="MonitorInfoes">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="SubmitService" ColumnName="SubmitService" />
+                <ScalarProperty Name="ServiceHost" ColumnName="ServiceHost" />
+                <ScalarProperty Name="MonitorType" ColumnName="MonitorType" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="ReportMailBody" ColumnName="ReportMailBody" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+                <ScalarProperty Name="CreatedDtm" ColumnName="CreatedDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OpsRecords">
+            <EntityTypeMapping TypeName="waspModel.OpsRecord">
+              <MappingFragment StoreEntitySet="OpsRecords">
+                <ScalarProperty Name="ExperimentId" ColumnName="ExperimentId" />
+                <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="CreateDtm" ColumnName="CreateDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="OperationDetail" ColumnName="OperationDetail" />
+                <ScalarProperty Name="OperationResult" ColumnName="OperationResult" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="waspModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfoes">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="UserAlias" ColumnName="UserAlias" />
+                <ScalarProperty Name="UserDomain" ColumnName="UserDomain" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedDtm" ColumnName="CreatedDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilePublishStrategyViews">
+            <EntityTypeMapping TypeName="waspModel.FilePublishStrategyView">
+              <MappingFragment StoreEntitySet="FilePublishStrategyView">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+                <ScalarProperty Name="FilePublishStrategyName" ColumnName="FilePublishStrategyName" />
+                <ScalarProperty Name="PartitionCount" ColumnName="PartitionCount" />
+                <ScalarProperty Name="ModelFilePattern" ColumnName="ModelFilePattern" />
+                <ScalarProperty Name="CheckSumFilePattern" ColumnName="CheckSumFilePattern" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="ModelTarget" ColumnName="ModelTarget" />
+                <ScalarProperty Name="TargetEnv" ColumnName="TargetEnv" />
+                <ScalarProperty Name="SourceExperimentId" ColumnName="SourceExperimentId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TrainingEndTime" ColumnName="TrainingEndTime" />
+                <ScalarProperty Name="PublishRecord" ColumnName="PublishRecord" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="IsManualPublish" ColumnName="IsManualPublish" />
+                <ScalarProperty Name="CreateDtm" ColumnName="CreateDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="StrategyName" ColumnName="StrategyName" />
+                <ScalarProperty Name="TargetModelFilePattern" ColumnName="TargetModelFilePattern" />
+                <ScalarProperty Name="TargetRootPathSi" ColumnName="TargetRootPathSi" />
+                <ScalarProperty Name="TargetRootPathXLite" ColumnName="TargetRootPathXLite" />
+                <ScalarProperty Name="TargetRootPathProd" ColumnName="TargetRootPathProd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobMetricsViews">
+            <EntityTypeMapping TypeName="waspModel.JobMetricsView">
+              <MappingFragment StoreEntitySet="JobMetricsView">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="Slice" ColumnName="Slice" />
+                <ScalarProperty Name="Impression" ColumnName="Impression" />
+                <ScalarProperty Name="Click" ColumnName="Click" />
+                <ScalarProperty Name="CTR" ColumnName="CTR" />
+                <ScalarProperty Name="AUC" ColumnName="AUC" />
+                <ScalarProperty Name="PRAUC" ColumnName="PRAUC" />
+                <ScalarProperty Name="LogLoss" ColumnName="LogLoss" />
+                <ScalarProperty Name="RIG" ColumnName="RIG" />
+                <ScalarProperty Name="PredictionError" ColumnName="PredictionError" />
+                <ScalarProperty Name="AvgPclick" ColumnName="AvgPclick" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+                <ScalarProperty Name="JobDesc" ColumnName="JobDesc" />
+                <ScalarProperty Name="ExperimentId" ColumnName="ExperimentId" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="JobType" ColumnName="JobType" />
+                <ScalarProperty Name="TrainingEndTime" ColumnName="TrainingEndTime" />
+                <ScalarProperty Name="Config" ColumnName="Config" />
+                <ScalarProperty Name="SubmitService" ColumnName="SubmitService" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="CreatedDtm" ColumnName="CreatedDtm" />
+                <ScalarProperty Name="ModifiedDtm" ColumnName="ModifiedDtm" />
+                <ScalarProperty Name="TrainingLineCount" ColumnName="TrainingLineCount" />
+                <ScalarProperty Name="TrainingImpressions" ColumnName="TrainingImpressions" />
+                <ScalarProperty Name="TrainingCtr" ColumnName="TrainingCtr" />
+                <ScalarProperty Name="TrainingMaxFeatureId" ColumnName="TrainingMaxFeatureId" />
+                <ScalarProperty Name="ValidationDataName" ColumnName="ValidationDataName" />
+                <ScalarProperty Name="ValidationDataPath" ColumnName="ValidationDataPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
