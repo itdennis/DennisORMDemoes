@@ -11,6 +11,7 @@ namespace DennisEFDemoes_ConsoleApp.CodeFirstDemo.DBContext
     {
         private static string connectionStr = GetConnectionString();
         public DbSet<PictureCategory> PictureCategories { get; set; }
+        public DbSet<SystemInfo> SystemInfos { get; set; }
         public Ef6RecipesContext()
             : base(connectionStr)
         {

@@ -51,13 +51,24 @@
   <ItemGroup>
     <Compile Include="CodeFirstDemo\DBContext\Ef6RecipesContext.cs" />
     <Compile Include="CodeFirstDemo\DBModels\PictureCategory.cs" />
+    <Compile Include="CodeFirstDemo\DBModels\SystemInfo.cs" />
     <Compile Include="ConnectionStringProvider.cs" />
+    <Compile Include="Migrations\201909101058110_addsysteminfo.cs" />
+    <Compile Include="Migrations\201909101058110_addsysteminfo.Designer.cs">
+      <DependentUpon>201909101058110_addsysteminfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909101058110_addsysteminfo.resx">
+      <DependentUpon>201909101058110_addsysteminfo.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
