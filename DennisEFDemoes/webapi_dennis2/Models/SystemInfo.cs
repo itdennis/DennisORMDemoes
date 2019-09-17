@@ -46,6 +46,8 @@ namespace webapi_dennis2.Models
         [Required]
         public string ModifyAuthor { get; set; }
 
+        public int FailedCount { get; set; }
+
         public SystemInfo()
         {
             Enable = false;
