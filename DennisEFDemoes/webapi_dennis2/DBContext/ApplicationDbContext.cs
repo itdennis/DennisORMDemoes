@@ -15,5 +15,11 @@ namespace webapi_dennis2.DBContext
         }
         public DbSet<SystemInfo> SystemInfos { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<SystemInfo>().Property(p => p.RowVersion).IsConcurrencyToken();
+        }
+
     }
 }

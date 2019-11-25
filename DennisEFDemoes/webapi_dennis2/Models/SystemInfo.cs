@@ -48,6 +48,10 @@ namespace webapi_dennis2.Models
 
         public int FailedCount { get; set; }
 
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public SystemInfo()
         {
             Enable = false;

@@ -46,6 +46,9 @@ namespace DennisEFDemoes_ConsoleApp.CodeFirstDemo.DBModels
         [Required]
         public string ModifyAuthor { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public SystemInfo()
         {
             Enable = false;

@@ -148,6 +148,10 @@
     <Compile Include="Migrations\201909160828039_addFailedCount.Designer.cs">
       <DependentUpon>201909160828039_addFailedCount.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911250847214_addRowVersion.cs" />
+    <Compile Include="Migrations\201911250847214_addRowVersion.Designer.cs">
+      <DependentUpon>201911250847214_addRowVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SystemInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909160828039_addFailedCount.resx">
       <DependentUpon>201909160828039_addFailedCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911250847214_addRowVersion.resx">
+      <DependentUpon>201911250847214_addRowVersion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

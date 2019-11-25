@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Core.EntityClient;
@@ -24,6 +25,7 @@ namespace DennisEFDemoes_ConsoleApp.CodeFirstDemo.DBContext
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<PictureCategory>().HasMany(t => t.Subcategories).WithOptional(t => t.ParentCategory);
+            modelBuilder.Entity<SystemInfo>().Property(p => p.RowVersion).IsConcurrencyToken();
         }
 
         private static string GetConnectionString()

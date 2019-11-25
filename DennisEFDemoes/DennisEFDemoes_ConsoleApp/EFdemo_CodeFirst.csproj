@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201909101058110_addsysteminfo.Designer.cs">
       <DependentUpon>201909101058110_addsysteminfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911250832512_addRowVersion.cs" />
+    <Compile Include="Migrations\201911250832512_addRowVersion.Designer.cs">
+      <DependentUpon>201911250832512_addRowVersion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201909101058110_addsysteminfo.resx">
       <DependentUpon>201909101058110_addsysteminfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911250832512_addRowVersion.resx">
+      <DependentUpon>201911250832512_addRowVersion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
